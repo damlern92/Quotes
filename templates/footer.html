@@ -1,0 +1,25 @@
+<!-- END CHANGEABLE CONTENT. -->
+<?php 
+
+// Display general admin links...
+// - if the user is an administrator and it's not the logout.php page
+// - or if the $loggedin variable is true (i.e., the user just logged in)
+
+// - the code basename($_SERVER['PHP_SELF']) is a reliable way to get the current script
+// and because the the footer file including by another script, will have the value of the including script.
+if ( (is_administrator() && (basename($_SERVER['PHP_SELF']) != 'logout.php'))
+OR (isset($loggedin) && $loggedin) ) {
+
+	// Create the links:
+	print '<hr><h3>Site Admin</h3>
+	<li><a href="add_quote.php">Add Quote</a></li>
+	<li><a href="view_quotes.php">View All Quotes</a></li>
+	<li><a href="logout.php">Logout</a></li>';
+
+}
+
+?>
+	</div><!-- container -->
+	<div id="footer">Content &copy; 2019</div>
+</body>
+</html>
